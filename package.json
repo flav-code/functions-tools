@@ -1,0 +1,40 @@
+{
+  "_from": "functions-tools",
+  "_id": "functions-tools@0.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-3WgAupMhQPqIS7asAcLvFu+1I90AJ6V+qzsAF8AbeyA6Y0WLxkUDu2N7tt1Vu6GNAZ2P0ZVVhFpOor1wpTF3Jg==",
+  "_location": "/functions-tools",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "functions-tools",
+    "name": "functions-tools",
+    "escapedName": "functions-tools",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/functions-tools/-/functions-tools-0.0.1.tgz",
+  "_shasum": "457c902f5ef9e71bf79d67a17b516d37b372acb6",
+  "_spec": "functions-tools",
+  "_where": "C:\\Users\\flavc\\Bureau\\FlaviBot Dev",
+  "author": {
+    "name": "NewGlace"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Your fonctions friends",
+  "keywords": [
+    "Discord.js",
+    "ms"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "functions-tools",
+  "version": "0.0.1"
+}

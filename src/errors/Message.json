@@ -1,0 +1,6 @@
+{
+    "VALUE_NOT_NUMBER": "[{type}] The value is not a number.",
+    "VALUE_NOT_STRING": "[{type}] The value is not a string.",
+    "TIMES_NULL": "[{type}] The format is not good.",
+    "VALUE_IS_NOT_DEFINED": "[{type}] The value is not defined."
+}

@@ -1,0 +1,12 @@
+{
+    "times": [
+        ["year","years", "y"],
+        ["month","months", "mo"],
+        ["week","weeks", "w"],
+        ["day","days", "d"],
+        ["hour","hours", "h"],
+        ["minute","minutes", "m"],
+        ["second","seconds", "s"],
+        ["millisecond","milliseconds", "ms"]
+    ]
+}
