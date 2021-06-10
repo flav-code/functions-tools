@@ -10,6 +10,9 @@ const objectConstructor = {
         ms: true
     }, "findArray": {
         all: false
+    },"formatTime": {
+        lang: "en", 
+        format: "MMMM Do YYYY, hh:mm:ss"
     }
 }
 let lang;

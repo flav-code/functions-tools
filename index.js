@@ -6,7 +6,7 @@ const info = require("./package.json");
 
 module.exports = {
     version: info.version,
-    
+
     stringifyTime: Time.stringifyTime,
     parseTime: Time.parseTime,
     wait: Time.wait,
@@ -14,4 +14,5 @@ module.exports = {
     findArray: Find.findArray,
     numberToRoman: Numb.numberToRoman,
     romanToNumber: Numb.romanToNumber,
+    formatTime: Time.formatTime
 }

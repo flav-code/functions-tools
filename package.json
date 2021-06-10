@@ -4,8 +4,8 @@
   "description": "Your fonctions friends",
   "main": "index.js",
   "keywords": [
-    "Discord.js",
-    "ms"
+    "Discord.js", "roman",
+    "ms", "date"
   ],
   "repository": {
     "type": "git",

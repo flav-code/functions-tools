@@ -9,6 +9,9 @@ module.exports = {
   formatTime
 };
 
+const format = ["Y","MO","W","D","H","M","S","MS"];
+const keysSeparator = [",", "/", ";", ":", "_"];
+
 /**
  * 
  * @lang => Choose the language of the values.
@@ -19,10 +22,6 @@ module.exports = {
  * @suppressTag => suppress the values name.
  * 
  **/
-
-const format = ["Y","MO","W","D","H","M","S","MS"];
-const keysSeparator = [",", "/", ";", ":", "_"];
-
 function stringifyTime(time, option = objectConstructor["stringifyTime"]) {
   if (!time) return error(lang.errors["VALUE_IS_NOT_DEFINED"], {type: "stringifyTime"}, "stringifyTime(500)");
 
@@ -77,7 +76,6 @@ function stringifyTime(time, option = objectConstructor["stringifyTime"]) {
  * @ms => Have the value in ms or in seconds.
  * 
  **/
-
 function parseTime(time, option = objectConstructor["parseTime"]) {
   if (!time) return error(lang.errors["VALUE_IS_NOT_DEFINED"], {type: "parseTime"}, "parseTime('2 days')");
   
@@ -134,9 +132,45 @@ async function wait(time) {
   });
 };
 
-function formatTime(time, option) {
+/**
+ * 
+ * @MMMM => Month all
+ * @MM => 3 char Month
+ * @Do => dayNumber
+ * @dddd => Day all
+ * @dd => 3 char Day
+ * @YYYY => Année full
+ * @YY => 2 char Année
+ * 
+ * @hh => houre
+ * @mm => minute
+ * @ss => second
+ **/
+function formatTime(time, option = objectConstructor["formatTime"]) {
   if (!time) return error(lang.errors["VALUE_IS_NOT_DEFINED"], {type: "formatTime"}, "formatTime('2021-06-10') || formatTime(1623329849143)");
 
   if (typeof(time) === "string") time = Date.now(time);
   if (typeof(time) !== "number") return error(lang.errors["VALUE_NOT_NUMBER"], {type: "formatTime"}, "formatTime('2021-06-10') || formatTime(1623329849143)");
+  if (!option || typeof(option) !== "object") option = objectConstructor["formatTime"];
+  if (!option.format) option.format = "MMMM Do YYYY, h:mm:ss";
+  if (!lang[option.lang]) option.lang = "en";
+  const key = lang[option.lang].format.day;
+  const date = new Date(time);
+  const month = lang[option.lang].format.months[date.getMonth()];
+  const day = lang[option.lang].format.days[date.getDay()];
+  const dayNumber = (date.getDate() < 10 ? "0": "") + date.getDate() + (key[option.lang-1] ? key[option.lang-1] : lang[option.lang].format.th)
+  const years = date.getFullYear();
+
+  const hours = (date.getHours() < 10 ? "0": "") + date.getHours();
+  const minutes = (date.getMinutes() < 10 ? "0": "") + date.getMinutes();
+  const second = (date.getSeconds() < 10 ? "0": "") + date.getSeconds();
+  
+  const updateText = ["MMMM", "MM", "Do", "dddd", "dd", "YYYY", "YY", "hh", "mm", "ss"];
+  const updateValue = [month, month.slice(0, 3), dayNumber, day, day.slice(0, 3), years, years.toString().slice(2, 4), hours, minutes, second]
+  for (let i = 0; i < updateText.length; i++) {
+    const reg = new RegExp(updateText[i], "g");
+    option.format = option.format.replace(reg, updateValue[i])
+  }
+
+  return option.format
 }
