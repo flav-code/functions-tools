@@ -149,21 +149,23 @@ async function wait(time) {
 function formatTime(time, option = objectConstructor["formatTime"]) {
   if (!time) return error(lang.errors["VALUE_IS_NOT_DEFINED"], {type: "formatTime"}, "formatTime('2021-06-10') || formatTime(1623329849143)");
 
-  if (typeof(time) === "string") time = Date.now(time);
+  if (typeof(time) === "string") time = new Date(time).getTime()
   if (typeof(time) !== "number") return error(lang.errors["VALUE_NOT_NUMBER"], {type: "formatTime"}, "formatTime('2021-06-10') || formatTime(1623329849143)");
+  
   if (!option || typeof(option) !== "object") option = objectConstructor["formatTime"];
   if (!option.format) option.format = "MMMM Do YYYY, h:mm:ss";
   if (!lang[option.lang]) option.lang = "en";
+
   const key = lang[option.lang].format.day;
   const date = new Date(time);
   const month = lang[option.lang].format.months[date.getMonth()];
   const day = lang[option.lang].format.days[date.getDay()];
-  const dayNumber = (date.getDate() < 10 ? "0": "") + date.getDate() + (key[option.lang-1] ? key[option.lang-1] : lang[option.lang].format.th)
+  const dayNumber = ("00" + date.getDate()).slice(-2) + (key[option.lang-1] ? key[option.lang-1] : lang[option.lang].format.th)
   const years = date.getFullYear();
 
-  const hours = (date.getHours() < 10 ? "0": "") + date.getHours();
-  const minutes = (date.getMinutes() < 10 ? "0": "") + date.getMinutes();
-  const second = (date.getSeconds() < 10 ? "0": "") + date.getSeconds();
+  const hours = ("00" + date.getHours()).slice(-2);
+  const minutes = ("00" + date.getMinutes()).slice(-2);
+  const second = ("00" + date.getSeconds()).slice(-2);
   
   const updateText = ["MMMM", "MM", "Do", "dddd", "dd", "YYYY", "YY", "hh", "mm", "ss"];
   const updateValue = [month, month.slice(0, 3), dayNumber, day, day.slice(0, 3), years, years.toString().slice(2, 4), hours, minutes, second]
