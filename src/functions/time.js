@@ -1,11 +1,12 @@
-const {languageBuild, objectConstructor} = require("../structure.js");
+const {languageBuild, objectConstructor} = require("../structure");
 const {error} = require("../errors/err");
 const lang = languageBuild();
 
 module.exports = {
 	stringifyTime,
   parseTime,
-  wait
+  wait, 
+  formatTime
 };
 
 /**
@@ -20,7 +21,7 @@ module.exports = {
  **/
 
 const format = ["Y","MO","W","D","H","M","S","MS"];
-const keysSeparator = [",", "/", ";", ":", "-", "_"];
+const keysSeparator = [",", "/", ";", ":", "_"];
 
 function stringifyTime(time, option = objectConstructor["stringifyTime"]) {
   if (!time) return error(lang.errors["VALUE_IS_NOT_DEFINED"], {type: "stringifyTime"}, "stringifyTime(500)");
@@ -53,7 +54,7 @@ function stringifyTime(time, option = objectConstructor["stringifyTime"]) {
     } else times.push(0);
   }
 
-  times = times.map((t, i) => t === 0 && !option.valueNull ? null : t + (!option.suppressTag ? " " + lang[option.lang??"en"].times[i][!option.long ? 2 : t < 2 ? 0 : 1] : ""));
+  times = times.map((t, i) => t === 0 && !option.valueNull ? null : t + (!option.suppressTag ? (option.long ? " " : "") + lang[option.lang??"en"].times[i][!option.long ? 2 : t < 2 ? 0 : 1] : ""));
   
   if (optionFormat) {    
     const newTimes = [];
@@ -73,7 +74,7 @@ function stringifyTime(time, option = objectConstructor["stringifyTime"]) {
 
 /**
  * 
- * @msValue => Have the value in ms or in seconds.
+ * @ms => Have the value in ms or in seconds.
  * 
  **/
 
@@ -115,7 +116,7 @@ function parseTime(time, option = objectConstructor["parseTime"]) {
 
     } else return error(lang.errors["VALUE_NOT_NUMBER"], {type: "parseTime"}, "parseTime('2 days')");
   };
-  if (!option.msValue) times = Math.floor(times/1000)
+  if (!option.ms) times = Math.floor(times/1000)
   return times;
 };
 
@@ -132,3 +133,10 @@ async function wait(time) {
     }, time);
   });
 };
+
+function formatTime(time, option) {
+  if (!time) return error(lang.errors["VALUE_IS_NOT_DEFINED"], {type: "formatTime"}, "formatTime('2021-06-10') || formatTime(1623329849143)");
+
+  if (typeof(time) === "string") time = Date.now(time);
+  if (typeof(time) !== "number") return error(lang.errors["VALUE_NOT_NUMBER"], {type: "formatTime"}, "formatTime('2021-06-10') || formatTime(1623329849143)");
+}

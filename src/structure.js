@@ -7,7 +7,9 @@ const objectConstructor = {
         valueNull: false, 
         suppressTag: false
     },"parseTime": {
-        msValue: true
+        ms: true
+    }, "findArray": {
+        all: false
     }
 }
 let lang;
