@@ -41,7 +41,7 @@ await ft.wait(5000);
 // {startTime: 1623327459766, endTime: 1623327464766, durationTime: 5000}
 await ft.wait("5s 10s -1s");
 // {startTime: 1623327464827, endTime: 1623327478827, durationTime: 14000}
-
+ 
 ft.formatTime(Date.now()); // june 10th 2021, 22:46:10
 ft.formatTime("10/06/2021"); // june 10th 2021, 00:00:00
 ft.formatTime("10/06/2021", {lang: "en", format: "Do MM, YYYY | hh:mm"}); // 06th Oct, 2021 | 00:00
