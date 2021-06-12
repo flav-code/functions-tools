@@ -4,13 +4,27 @@
   "description": "Your fonctions friends",
   "main": "index.js",
   "keywords": [
-    "Discord.js", "roman",
-    "ms", "date"
+    "fuction",
+    "functions",
+    "tool",
+    "tools",
+    "function tool",
+    "function",
+    "Discord.js",
+    "roman",
+    "ms",
+    "date"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flav28/functions-tools.git"
   },
   "author": "NewGlace",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.2"
+  }
 }

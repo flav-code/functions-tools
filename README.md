@@ -52,7 +52,13 @@ ft.numberToRoman(24); // XXIV
 
 ft.romanToNumber("XXIV"); // 24
 ```
-#### Fonctions Find
+#### Fonctions Text
+```js
+ft.replaceText("Hello {user}", {user: "NewGlace"}) //Hello NewGlace
+ft.replaceText("Hello {user} {suffix}", {user: "NewGlace", suffix: "vanilla"}) //Hello NewGlace vanilla
+ft.replaceText("Hello {user}", {user: "NewGlace {suffix}", suffix: "vanilla"}) //Hello NewGlace vanilla
+```
+#### Fonctions Array
 ```js
 ft.findArray(["H",["E",["L"],"L"],"O,"," ","W",["O",["R",["L"]]],"D"], "L");
 // Map(1) { 0 => [ 1, 1, 0 ] }
@@ -60,4 +66,15 @@ ft.findArray(["H",["E",["L"],"L"],"O,"," ","W",["O",["R",["L"]]],"D"], "L", {all
 // Map(3) { 0 => [ 1, 1, 0 ], 1 => [ 1, 1, 2 ], 2 => [ 1, 5, 1, 1, 0 ] }
 ft.findArray(["H",["E",["L"],"L"],"O,"," ","W",["O",["R",["L"]]],"D"], "P");
 // Map(0) {}
+
+ft.randomArray(["A","B","C"]); // B
+ft.randomArray(["A","B","C"], {number: 4}); // ["C", "A", "B", "A"]
+ft.randomArray(["A","B","C"], {number: 4, double: false}); // ["A", "C", "B"]
+
+//To shuffle an array
+const array = [1,2,3,4,5,6,7,8,9,0];
+ft.randomArray(array, {number: array.length, double: false});
+// [4, 3, 7, 0, 5, 6, 2, 1, 9, 8]
 ```
+# Discord
+Join the [Discord](https://discord.gg/kH4X6MHu7T)

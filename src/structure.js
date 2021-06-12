@@ -13,6 +13,9 @@ const objectConstructor = {
     },"formatTime": {
         lang: "en", 
         format: "MMMM Do YYYY, hh:mm:ss"
+    }, "randomArray": {
+        number: 1,
+        double: true
     }
 }
 let lang;
