@@ -6,8 +6,6 @@ const Text = require("./src/functions/Text");
 const Fonction = require("./src/functions/Fonction");
 const {version} = require("./package.json");
 
-console.log(Fonction.multiFunctions(Numb.numberToRoman, [10, 34, 54]))
-
 module.exports = {
     version: version,
 

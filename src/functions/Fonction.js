@@ -10,7 +10,7 @@ async function multiFunctions(f, value, async = false) {
     if (!f || !value) return error(lang.errors["VALUE_IS_NOT_DEFINED"], {type: "multiFunctions"}, "multiFunctions(numberToRoman, [10, 30])");
     if (!(f instanceof Function)) return error(lang.errors["VALUE_NOT_FUNCTION"], {type: "multiFunctions"}, "multiFunctions(numberToRoman, [10, 30])");
     if (!(value instanceof Array)) return error(lang.errors["VALUE_NOT_ARRAY"], {type: "multiFunctions"}, "multiFunctions(numberToRoman, [10, 30])");
-    if (!(async instanceof Boolean)) return error(lang.errors["VALUE_NOT_BOOLEAN"], {type: "multiFunctions"}, "multiFunctions(numberToRoman, [10, 30], true)");
+    if (typeof(async) !== "boolean") return error(lang.errors["VALUE_NOT_BOOLEAN"], {type: "multiFunctions"}, "multiFunctions(numberToRoman, [10, 30], true)");
 
     const results = [];
     for (let i = 0; i < value.length; i++) {

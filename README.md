@@ -76,5 +76,15 @@ const array = [1,2,3,4,5,6,7,8,9,0];
 ft.randomArray(array, {number: array.length, double: false});
 // [4, 3, 7, 0, 5, 6, 2, 1, 9, 8]
 ```
+#### Fonctions multiFunctions
+```js
+ft.multiFunctions(ft.numberToRoman, [10, 34, 54]);
+await ft.multiFunctions(ft.numberToRoman, [10, 34, 54], async: true);
+// Promise { [ 'X', 'XXXIV', 'LIV' ] }
+
+ft.multiFunctions(ft.replaceText, [["Hello {x}", {x: "World"}],["Hi {u}", {u: "World"}],["Bye {p}", {p: "World"}]]);
+await ft.multiFunctions(ft.replaceText, [["Hello {x}", {x: "World"}],["Hi {u}", {u: "World"}],["Bye {p}", {p: "World"}]], async: true); 
+//Promise { [ 'Hello World', 'Hi World', 'Bye World' ] }
+```
 # Discord
 Join the [Discord](https://discord.gg/kH4X6MHu7T)

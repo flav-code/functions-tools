@@ -39,8 +39,8 @@ function findArray(array, search, option = objectConstructor["findArray"]) {
 function randomArray(a, option = objectConstructor["randomArray"]) {
     if (!a) return error(lang.errors["VALUE_IS_NOT_DEFINED"], {type: "randomArray"}, "randomArray(['a','b','c'])");
     if (!(a instanceof Array)) return error(lang.errors["VALUE_NOT_ARRAY"], {type: "randomArray"}, "randomArray(['a','b','c'])");
-    if (!(option.number instanceof Number)) return error(lang.errors["VALUE_NOT_NUMBER"], {type: "randomArray"}, "randomArray(['a','b','c'], {number: 2})");
-    if (!(option.double instanceof Boolean)) return error(lang.errors["VALUE_NOT_BOOLEAN"], {type: "randomArray"}, "randomArray(['a','b','c'], {double: true})");
+    if (isNaN(option.number)) return error(lang.errors["VALUE_NOT_NUMBER"], {type: "randomArray"}, "randomArray(['a','b','c'], {number: 2})");
+    if (typeof(option.double) !== "boolean") return error(lang.errors["VALUE_NOT_BOOLEAN"], {type: "randomArray"}, "randomArray(['a','b','c'], {double: true})");
 
     const randomList = [];
     const array = a.slice(0, a.length);
