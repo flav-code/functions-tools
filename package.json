@@ -4,13 +4,14 @@
   "description": "Your fonctions friends",
   "main": "index.js",
   "keywords": [
-    "Discord.js", "roman",
+    "fuction", "functions", "tool", "tools", "function tool", "function"
+    ,"Discord.js", "roman",
     "ms", "date"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/flav28/functions-tools.git"
   },
-  "author": "NewGlace",
+  "author": "NewGlace & flav#2200",
   "license": "ISC"
 }
