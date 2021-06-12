@@ -5,7 +5,7 @@ const lang = languageBuild();
 module.exports = {
     multiFunctions
 };
-
+ 
 async function multiFunctions(f, value, async = false) {
     if (!f || !value) return error(lang.errors["VALUE_IS_NOT_DEFINED"], {type: "multiFunctions"}, "multiFunctions(numberToRoman, [10, 30])");
     if (!(f instanceof Function)) return error(lang.errors["VALUE_NOT_FUNCTION"], {type: "multiFunctions"}, "multiFunctions(numberToRoman, [10, 30])");

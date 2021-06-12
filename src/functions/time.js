@@ -70,7 +70,7 @@ function stringifyTime(time, option = objectConstructor["stringifyTime"]) {
 
   return times.filter(r => r).join(sep);
 };
-
+ 
 /**
  * 
  * @ms => Have the value in ms or in seconds.

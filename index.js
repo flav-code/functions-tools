@@ -5,7 +5,7 @@ const Numb = require("./src/functions/Number");
 const Text = require("./src/functions/Text");
 const Fonction = require("./src/functions/Fonction");
 const {version} = require("./package.json");
-
+ 
 module.exports = {
     version: version,
 

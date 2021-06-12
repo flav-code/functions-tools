@@ -3,7 +3,7 @@ const {name, version} = require("../../package.json");
 module.exports = {
     error
 };
-
+ 
 function error(str, option = {}, correction) {
     if (!str) str = "undefined";
     str = "\n[Package Name] - "+ name +"@"+ version +"\n\x1b[31m" + str + "\x1b[0m";

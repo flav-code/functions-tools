@@ -10,7 +10,7 @@ module.exports = {
 function findArray(array, search, option = objectConstructor["findArray"]) {
     if (!array || !search) return error(lang.errors["VALUE_IS_NOT_DEFINED"], {type: "findArray"}, "findArray(['a','b','c'], 'a')");
     if (!(array instanceof Array)) return error(lang.errors["VALUE_NOT_ARRAY"], {type: "findArray"}, "findArray(['a','b','c'], 'a')");
-
+ 
     let boolean = false;
     let findValue = new Map();
 
